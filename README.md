@@ -1,4 +1,5 @@
-# Lab1_ARSW
-Primer laboratorio arsw
-Juan Diego Patiño Muñoz
-Julio Cesar Mayorquin Rodriguez 
+# Lab uno ARSW
+
+- Juan Diego Patiño Muñoz
+- Julio Cesar Mayorquin Rodriguez 
+
