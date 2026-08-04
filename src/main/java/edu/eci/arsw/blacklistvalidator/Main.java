@@ -20,15 +20,15 @@ public class Main {
         SearchIP s = new SearchIP(0, 100, "200.24.34.55");
         Thread t = new Thread(s);
 
-        t.start();
+        t.start();*/
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        System.out.println(s.getInstances());*/
+        /*System.out.println(s.getInstances());*/
 
-        SearchByChunks.checkHosts( "200.24.34.55", 3);
+        SearchByChunks.checkHosts( "200.24.34.55", 100);
     }
 }
