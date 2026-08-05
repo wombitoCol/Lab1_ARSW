@@ -54,7 +54,7 @@ Muestra:
 
 <img width="894" height="587" alt="imagen" src="https://github.com/user-attachments/assets/aea1820e-cd97-4e0c-89c0-fca48a565005" />
 
-8 hilos ya e muestra como 0 segundos
+12 hilos se muestra como 0 segundos
 
 <img width="190" height="66" alt="imagen" src="https://github.com/user-attachments/assets/e67200c4-7f6a-4de2-be7c-070975998ef5" />
 
