@@ -3,9 +3,24 @@
 - Juan Diego Patiño Muñoz
 - Julio Cesar Mayorquin Rodriguez 
 
-# Preguntas
+## 1 Punto
 
-- Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+- start() crea un hilo real del sistema operativo y el JVM decide el orden/interleaving de ejecución — por eso al correrlo varias veces la salida sale "entremezclada" y en orden distinto cada vez.
+- .run() simplemente ejecuta el método como una llamada normal, secuencial, en el hilo actual (el main). No se crea ningún hilo nuevo, así que la salida sale ordenada y siempre igual: primero termina el hilo 1 completo, luego el 2, luego el 3.
+
+Codigo en carpeta "Threads"
+CountThread implementa Runnable. Recibe en el constructor start (inicio del rango) y amount (límite superior). En run() recorre for i = start; i < amount; i++, imprime "counting: " + i en cada iteración, y guarda el último valor recorrido en el atributo finals, accesible con el getter getFinal().
+
+En CountThreadsMain se crean tres instancias de CountThread con distintos rangos, cada una envuelta en un Thread, y se arrancan con .start(). Además hay una cuarta instancia adicional con rango [0,1] que también se arranca por separado.
+
+
+## 2 Punto  
+
+Codigo en carpeta de proyecto "blacklistvalidator"
+Recibe una IP y un número N de hilos, y divide el total de listas negras registradas (getRegisteredServersCount()) en N segmentos o "chunks" de tamaño similar (repartiendo también el residuo si el total no es exactamente divisible por N). Cada chunk se le asigna a un hilo distinto, encargado de recorrer únicamente su porción del espacio de búsqueda (usando HostBlacklistsDataSourceFacade) y contar en cuántas de sus listas asignadas aparece la IP.
+
+Una vez arrancados todos los hilos, checkHost espera a que cada uno termine su chunk (join()), recolecta el conteo de ocurrencias y la lista de números de listas negras donde se encontró la IP en cada hilo, y suma esos resultados. Si el total combinado alcanza BLACK_LIST_ALARM_COUNT (5), reporta el host como no confiable (reportAsNotTrustworthy); si no, lo reporta como confiable (reportAsTrustworthy). Finalmente registra en el log cuántas listas fueron revisadas en total frente al total disponible, y retorna la lista combinada de números de listas negras donde se encontró la IP.
 
 ## 3 Punto
 
@@ -24,8 +39,19 @@ Doble de hilos que de nucleos
 <img width="1286" height="887" alt="imagen" src="https://github.com/user-attachments/assets/1b561284-6db3-48e8-8a02-c2764f99e019" />
 100 hilos
 
+Grafica tiempo/hilos
+<img width="479" height="287" alt="imagen" src="https://github.com/user-attachments/assets/8eb32986-2a2a-4d5b-ae2f-71636c9b767f" />
+
 
 ## 4 Punto 
+
+Uno de los mayores problemas que nos encontramos con las capturas de VisualVM es que su toma de tiempo en milisegundos no es buena entonces en muchos casos da 0 segundos y ya esta. Por esto mismo mas adelante utilizamos una funcion para calcular este tiempo. 
+Muestra:
+<img width="897" height="589" alt="imagen" src="https://github.com/user-attachments/assets/00a9a915-a513-4328-be52-70ce5bd1b84c" />
+1 hilo se muestra 4 segundos
+
+<img width="894" height="587" alt="imagen" src="https://github.com/user-attachments/assets/aea1820e-cd97-4e0c-89c0-fca48a565005" />
+8 hilos ya e muestra como 0 segundos
 
 <img width="190" height="66" alt="imagen" src="https://github.com/user-attachments/assets/e67200c4-7f6a-4de2-be7c-070975998ef5" />
 Teniendo esta formula y entendiendo que S(N) es el la diferencia de tiempo entre 1 hilo y n hilos. Usamos entonces N(s) = T(1)/T(s), y para calcular este tiempo hay un metodo del paquete system el cual permite calcular tiempos en milisegundos siendo este "nanoTime()" asi pues el codigo quedaria de la siguiente forma:
