@@ -40,6 +40,7 @@ Doble de hilos que de nucleos
 100 hilos
 
 Grafica tiempo/hilos
+
 <img width="479" height="287" alt="imagen" src="https://github.com/user-attachments/assets/8eb32986-2a2a-4d5b-ae2f-71636c9b767f" />
 
 
