@@ -12,8 +12,8 @@ import java.util.List;
  * @author hcadavid
  */
 public class Main {
-    public static void main(String a[]){
-        HostBlackListsValidator hblv=new HostBlackListsValidator();
+    public static void main(String a[]) {
+        /*HostBlackListsValidator hblv=new HostBlackListsValidator();
         /*List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55");
         System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
 
@@ -21,14 +21,40 @@ public class Main {
         Thread t = new Thread(s);
 
         t.start();*/
-        try {
+        /*try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
         /*System.out.println(s.getInstances());*/
+        //SearchByChunks.checkHosts( "200.24.34.55", 100);
 
-        SearchByChunks.checkHosts( "200.24.34.55", 100);
+        String ip = "200.24.34.55";
+        int nucleos = Runtime.getRuntime().availableProcessors();
+
+        int[] escenarios = {
+                1,              // 1 hilo
+                nucleos,        // tantos hilos como núcleos
+                nucleos * 2,    // el doble de hilos que de nucleos
+                200,            // 200 hilos
+                500,             // 500 hilos
+                8,               // caso de 100 maquinas
+                100
+        };
+
+        System.out.println("Núcleos detectados: " + nucleos);
+
+        for (int chunks : escenarios) {
+            long inicio = System.nanoTime();
+
+            SearchByChunks.checkHosts(ip, chunks);
+
+            long fin = System.nanoTime();
+            double segundos = (fin - inicio) / 1_000_000_000.0;
+
+            System.out.printf("Hilos: %-4d -> Tiempo: %.6f s%n", chunks, segundos);
+
+        }
     }
 }
