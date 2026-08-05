@@ -50,18 +50,24 @@ ago 04, 2026 8:58:25 P. M. edu.eci.arsw.spamkeywordsdatasource.HostBlacklistsDa
 INFORMACIÓN: HOST 200.24.34.55 Reported as NOT trustworthy
 Hilos: 500  -> Tiempo: 0,053141 s
 ````
-Y listo con esto podemos ver que:
-S(200) = 4.240816/0.05555 = 76.40559239 
+Y listo, con esto podemos ver que:
+
+S(200) = 4,240816/0,05555 = 76,40559239
+
+S(500) = 4,240816/0,053866 = 78,72899417
+
 Que es la cantidad que mejora respecto a un hilo.
-s(500) = 4,240816/0,053866 = 78.72899417
 
-Notamos algo muy curioso y es que la mejora entre los 200 hilos y los 500 hilos en MININA sabiendo que 500 es mas que el doble de 200, y esto sucede a razon de los nucles que usa mi computadora que son 12 y estos tiene un limite de proceso de nucleos el cual hacen que esta ley se vea afectada en sus mejoras a mas hilos. 
+Notamos algo muy curioso, y es que la mejora entre los 200 hilos y los 500 hilos es MÍNIMA, sabiendo que 500 es más del doble de 200. Esto sucede a razón de los núcleos que usa mi computadora, que son 12, y estos tienen un límite de procesamiento de núcleos, el cual hace que esta ley se vea afectada en sus mejoras a más hilos.
 
-Ahora si analizamos el caso en los hilos mismo que los nucleos y el doble de hilos que de nucleos. Como podemos observar en el input nos dio los resultados en tiempo entonces solo queda hacer la formula y comparar.
-s(12) = 12.27315244
-s(24) = 28.37444383
-Entonces con esta informacion vemos que si hay una mejora ENORME (mayor del doble) respecto a los mismos nucleos que a el doble de estos. Ahora entonces cabe concluir que si existen grandes mejoras incluso sobrepasando los nucleos del sistema, pero que estas mejoras no son exponenciales aumentando siempre los nucleos al infinito. 
+Ahora, si analizamos el caso de los hilos iguales a los núcleos y el doble de hilos que de núcleos, como podemos observar, el input nos dio los resultados en tiempo, entonces solo queda hacer la fórmula y comparar:
 
-Ahora en un caso hipotetico donde 100 computadoras funcionaran con un solo hilo esta limitacion vista arriba desapareceria ya que la p. La razon es que estos numeros se estan viendo limitados por los nucleos del procesador ya que los procesos paralelos no se estan dando en cada nucleo si no que este esta dando un "context switching", osea que no es un proceso paralelo mas bien son los nucleos partiendo el proceso en varios pedacitos y completandolo por partes. Si pudieramos a cada hilo asignarle un procesador esto no limitaria los tiempos de computo que un solo procesador con sus nucleos fisicos puede manejar. y el caso de 100/c seria el caso mas optimo ya que vimos que si existe una mejora al aumentar el nucleo, teniendo limites cuando sobrepasa sus nucleos estamos en un caso de optimizacion maxima.
+S(12) = 12,27315244
+
+S(24) = 28,37444383
+
+Entonces, con esta información vemos que sí hay una mejora ENORME (mayor al doble) respecto a los mismos núcleos que al doble de estos. Ahora, entonces, cabe concluir que sí existen grandes mejoras, incluso sobrepasando los núcleos del sistema, pero que estas mejoras no son exponenciales aumentando siempre los núcleos al infinito.
+
+Ahora, en un caso hipotético donde 100 computadoras funcionaran con un solo hilo, esta limitación vista arriba desaparecería, ya que la p... La razón es que estos números se están viendo limitados por los núcleos del procesador, ya que los procesos paralelos no se están dando en cada núcleo, sino que este está dando un "context switching", o sea, que no es un proceso paralelo, más bien son los núcleos partiendo el proceso en varios pedacitos y completándolo por partes. Si pudiéramos asignarle a cada hilo un procesador, esto no limitaría los tiempos de cómputo que un solo procesador con sus núcleos físicos puede manejar. Y el caso de 100/c sería el caso más óptimo, ya que vimos que sí existe una mejora al aumentar los núcleos, teniendo límites cuando se sobrepasan estos; estamos en un caso de optimización máxima.
 _TODO_
 
