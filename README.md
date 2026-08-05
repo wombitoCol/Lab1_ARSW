@@ -10,6 +10,8 @@ Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 - .run() simplemente ejecuta el método como una llamada normal, secuencial, en el hilo actual (el main). No se crea ningún hilo nuevo, así que la salida sale ordenada y siempre igual: primero termina el hilo 1 completo, luego el 2, luego el 3.
 
 Codigo en carpeta "Threads"
+
+
 CountThread implementa Runnable. Recibe en el constructor start (inicio del rango) y amount (límite superior). En run() recorre for i = start; i < amount; i++, imprime "counting: " + i en cada iteración, y guarda el último valor recorrido en el atributo finals, accesible con el getter getFinal().
 
 En CountThreadsMain se crean tres instancias de CountThread con distintos rangos, cada una envuelta en un Thread, y se arrancan con .start(). Además hay una cuarta instancia adicional con rango [0,1] que también se arranca por separado.
@@ -18,6 +20,8 @@ En CountThreadsMain se crean tres instancias de CountThread con distintos rangos
 ## 2 Punto  
 
 Codigo en carpeta de proyecto "blacklistvalidator"
+
+
 Recibe una IP y un número N de hilos, y divide el total de listas negras registradas (getRegisteredServersCount()) en N segmentos o "chunks" de tamaño similar (repartiendo también el residuo si el total no es exactamente divisible por N). Cada chunk se le asigna a un hilo distinto, encargado de recorrer únicamente su porción del espacio de búsqueda (usando HostBlacklistsDataSourceFacade) y contar en cuántas de sus listas asignadas aparece la IP.
 
 Una vez arrancados todos los hilos, checkHost espera a que cada uno termine su chunk (join()), recolecta el conteo de ocurrencias y la lista de números de listas negras donde se encontró la IP en cada hilo, y suma esos resultados. Si el total combinado alcanza BLACK_LIST_ALARM_COUNT (5), reporta el host como no confiable (reportAsNotTrustworthy); si no, lo reporta como confiable (reportAsTrustworthy). Finalmente registra en el log cuántas listas fueron revisadas en total frente al total disponible, y retorna la lista combinada de números de listas negras donde se encontró la IP.
