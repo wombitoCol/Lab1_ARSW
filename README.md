@@ -7,7 +7,7 @@
 
 - Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
 
--- 3 Punto
+## 3 Punto
 
 <img width="1289" height="889" alt="imagen" src="https://github.com/user-attachments/assets/7816442e-9797-4d59-beb0-0d32a8fc9bf4" />
 1 hilo
@@ -25,7 +25,8 @@ Doble de hilos que de nucleos
 100 hilos
 
 
--- 4 Punto 
+## 4 Punto 
+
 <img width="190" height="66" alt="imagen" src="https://github.com/user-attachments/assets/e67200c4-7f6a-4de2-be7c-070975998ef5" />
 Teniendo esta formula y entendiendo que S(N) es el la diferencia de tiempo entre 1 hilo y n hilos. Usamos entonces N(s) = T(1)/T(s), y para calcular este tiempo hay un metodo del paquete system el cual permite calcular tiempos en milisegundos siendo este "nanoTime()" asi pues el codigo quedaria de la siguiente forma:
 <img width="1135" height="583" alt="imagen" src="https://github.com/user-attachments/assets/2d0f997e-84bf-47e3-bc5e-004a4db47ed8" />
