@@ -31,6 +31,7 @@ Doble de hilos que de nucleos
 Teniendo esta formula y entendiendo que S(N) es el la diferencia de tiempo entre 1 hilo y n hilos. Usamos entonces N(s) = T(1)/T(s), y para calcular este tiempo hay un metodo del paquete system el cual permite calcular tiempos en milisegundos siendo este "nanoTime()" asi pues el codigo quedaria de la siguiente forma:
 <img width="1135" height="583" alt="imagen" src="https://github.com/user-attachments/assets/2d0f997e-84bf-47e3-bc5e-004a4db47ed8" />
 el output dado es:
+
 ````
 Núcleos detectados: 12
 ago 04, 2026 8:58:24 P. M. edu.eci.arsw.spamkeywordsdatasource.HostBlacklistsDataSourceFacade reportAsNotTrustworthy
