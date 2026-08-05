@@ -49,14 +49,18 @@ Grafica tiempo/hilos
 Uno de los mayores problemas que nos encontramos con las capturas de VisualVM es que su toma de tiempo en milisegundos no es buena entonces en muchos casos da 0 segundos y ya esta. Por esto mismo mas adelante utilizamos una funcion para calcular este tiempo. 
 Muestra:
 <img width="897" height="589" alt="imagen" src="https://github.com/user-attachments/assets/00a9a915-a513-4328-be52-70ce5bd1b84c" />
+
 1 hilo se muestra 4 segundos
 
 <img width="894" height="587" alt="imagen" src="https://github.com/user-attachments/assets/aea1820e-cd97-4e0c-89c0-fca48a565005" />
+
 8 hilos ya e muestra como 0 segundos
 
 <img width="190" height="66" alt="imagen" src="https://github.com/user-attachments/assets/e67200c4-7f6a-4de2-be7c-070975998ef5" />
+
 Teniendo esta formula y entendiendo que S(N) es el la diferencia de tiempo entre 1 hilo y n hilos. Usamos entonces N(s) = T(1)/T(s), y para calcular este tiempo hay un metodo del paquete system el cual permite calcular tiempos en milisegundos siendo este "nanoTime()" asi pues el codigo quedaria de la siguiente forma:
 <img width="1135" height="583" alt="imagen" src="https://github.com/user-attachments/assets/2d0f997e-84bf-47e3-bc5e-004a4db47ed8" />
+
 el output dado es:
 
 ````
